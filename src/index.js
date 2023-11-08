@@ -1,11 +1,43 @@
 import React from "react";
-import ReactDom from "react-dom";
-function Display()
-{
-  return(
-    <div>
-    <img src="image/ant.jpg" width={500} height={500} alt="antImage"></img>   
-    </div>
-  );
+import ReactDOM from "react-dom";
+let marks = 50
+class Passmessage extends React.Component {
+  render() {
+    return (<h1 style={{
+      color: "green"
+    }}
+    >You are pass</h1>)
+  }
 }
-ReactDom.render(<Display></Display>,document.getElementById("main"));
+class Failmessage extends React.Component {
+  render() {
+    return (<h1 style={{
+      color: "red"
+    }}
+    >You are fail</h1>
+    )
+  }
+ 
+}
+function Display() {
+  if(marks>=50)
+  {
+    return (
+      <div>
+        <Passmessage></Passmessage>
+      </div>
+    )
+  }
+else
+{
+  return (
+    <div>
+     
+      <Failmessage></Failmessage>
+    </div>
+  )
+}
+}
+var obj = new Failmessage();
+const root = ReactDOM.createRoot(document.getElementById('main'));
+root.render(Display());
