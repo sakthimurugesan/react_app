@@ -1,17 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDom from "react-dom";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+function PassMessage()
+{
+  return(
+    <h1 style={
+      {
+        color:'green',
+        fontWeight:'bolder'
+      }
+    }>You are Pass</h1>
+    );
+  }
+  function FailMessage()
+  {
+    return(
+      <h1 style={
+        {
+        color:'green',
+        fontWeight:'bolder'
+      }
+    }>You are Pass</h1>
+  );
+}
+var marks=50;
+function Display()
+{
+  if(marks>=50)
+  return(
+<PassMessage></PassMessage>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  else
+  return(
+<FailMessage></FailMessage>
+);
+}
+ReactDom.render(<Display></Display>,document.getElementById("main"));
