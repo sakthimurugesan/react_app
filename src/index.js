@@ -1,43 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-let marks = 50
-class Passmessage extends React.Component {
-  render() {
-    return (<h1 style={{
-      color: "green"
-    }}
-    >You are pass</h1>)
-  }
-}
-class Failmessage extends React.Component {
-  render() {
-    return (<h1 style={{
-      color: "red"
-    }}
-    >You are fail</h1>
-    )
-  }
- 
-}
+import './index.css';
+
+const arr = [
+    "Hello",
+    "World",
+    "From",
+    "Aliens",
+    "I am Alien"
+];
+
 function Display() {
-  if(marks>=50)
-  {
+    var [ind, setInd] = useState(0);
+
     return (
-      <div>
-        <Passmessage></Passmessage>
-      </div>
-    )
-  }
-else
-{
-  return (
-    <div>
-     
-      <Failmessage></Failmessage>
-    </div>
-  )
+        <div>
+            <h1>{arr[ind]}</h1>
+            <button onClick={() => {
+                const newIndex = (ind + 1) % 5;
+                setInd(newIndex);
+            }}>Click Here</button>
+        </div>
+    );
 }
-}
-var obj = new Failmessage();
-const root = ReactDOM.createRoot(document.getElementById('main'));
-root.render(Display());
+
+ReactDOM.render(<Display />, document.getElementById("main"));
